@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,50 @@ namespace classwork2_07_04_23
 
         bool caps_lock_on = false;
 
+        string buffer_string; 
+
+
+        static string text_path = "Text_1.txt";
+
+        StreamReader sr = new StreamReader(text_path);
+
+        public bool case_sens = false;
+
+        static string Check_Line_Status(string Current_Line, StreamReader sr)
+        {
+            
+            
+
+            if (Current_Line == "")
+            {
+
+                if (sr.EndOfStream!=true)
+                {
+                    Current_Line = Read_string(sr);
+                }
+                else { 
+
+                    sr.BaseStream.Position = 0; 
+                    Current_Line = Read_string(sr); 
+                }
+            }
+            return Current_Line;
+        }
+
+        static string Read_string(StreamReader sr)
+        {
+
+            
+            string line;
+
+            line = sr.ReadLine();
+
+            if (line != "" | line!=null) return line;
+            else return null;
+        }
+
+
+
         static string Caps_Check(string input, bool caps_lock_on)
         {
 
@@ -39,68 +84,136 @@ namespace classwork2_07_04_23
 
         }
 
+        static string Check_Remove_Symbol(string input, string pressed,bool sens)
+        {
+
+            if (sens==true)
+            {
+
+                if (input != "")
+                {
+                    if (input.First() == pressed.First())
+                    {
+                        return input.Remove(0, 1);
+                    }
+
+                    else return input;
+
+                }
+                else return input;
+
+            }
+            else
+            {
+
+                if (input != "")
+                {
+                    if (input.First().ToString().ToLower() == pressed.First().ToString().ToLower())
+                    {
+                        return input.Remove(0, 1);
+                    }
+
+                    else return input;
+
+                }
+                else return input;
+
+            }
+
+            
+        }
+
+        
+
         private void Button_1_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += this.Button_1.Content;
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_1.Content.ToString(),caps_lock_on),case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
+
         }
         private void Button_apostrof_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += this.Button_apostrof.Content;
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_apostrof.Content.ToString(),caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_2_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += this.Button_2.Content;
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_2.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_3_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += this.Button_3.Content;
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_3.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_4_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += this.Button_4.Content;
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_4.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_5_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += this.Button_5.Content;
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_5.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_6_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += this.Button_6.Content;
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_6.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_7_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += this.Button_7.Content;
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_7.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_8_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += this.Button_8.Content;
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_8.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_9_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += this.Button_9.Content;
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_9.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_0_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += this.Button_0.Content;
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_0.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_minus_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += this.Button_minus.Content;
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_minus.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_equals_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += this.Button_equals.Content;
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_equals.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_backspace_Click(object sender, RoutedEventArgs e)
@@ -128,68 +241,95 @@ namespace classwork2_07_04_23
         }
 
         private void Button_q_Click(object sender, RoutedEventArgs e)
+        
         {
-            main_textbox.Text += Caps_Check(this.Button_q.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_q.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_w_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_w.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_w.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_e_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_e.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_e.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_r_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_r.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_r.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_t_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_t.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_t.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_y_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_y.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_y.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_u_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_u.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_u.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_i_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_i.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_i.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_o_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_o.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_o.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_p_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_p.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_p.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_square_left_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_square_left.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_square_left.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_square_right_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_square_right.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_square_right.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_slash_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += this.Button_slash.Content;
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_slash.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
 
@@ -220,52 +360,74 @@ namespace classwork2_07_04_23
 
         private void Button_a_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_a.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_a.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_s_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_s.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_s.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_d_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_d.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_d.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_f_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_f.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_f.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_g_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_g.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_g.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_h_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_h.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_h.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_j_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_j.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_j.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_k_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_k.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_k.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_l_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_l.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_l.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_dot_coma_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_dot_coma.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
+
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Button_dot_coma.Content.ToString(), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
         private void Button_enter_click(object sender, RoutedEventArgs e)
         {
@@ -278,57 +440,119 @@ namespace classwork2_07_04_23
 
         private void Button_z_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_z.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_z.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_x_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_x.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_x.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_c_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_c.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_c.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_v_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_v.Content as string, caps_lock_on);
+
+
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_v.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_b_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_b.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_b.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_n_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_n.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_n.Content.ToString(), caps_lock_on ), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_m_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += Caps_Check(this.Button_m.Content as string, caps_lock_on);
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_m.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_coma_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += this.Button_coma.Content;
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Caps_Check(Button_coma.Content.ToString(), caps_lock_on), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_dot_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += this.Button_dot.Content;
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Button_dot.Content.ToString(), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_back_slash_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += this.Button_back_slash.Content;
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, Button_back_slash.Content.ToString(), case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
         }
 
         private void Button_space_Click(object sender, RoutedEventArgs e)
         {
-            main_textbox.Text += " ";
+
+            main_textbox.Text = Check_Remove_Symbol(main_textbox.Text, " ",case_sens);
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
+        }
+
+
+
+        private void Case_Sens_Check_box_Checked(object sender, RoutedEventArgs e)
+        {
+            case_sens = true;
+        }
+
+        private void Case_Sens_Check_box_Unchecked(object sender, RoutedEventArgs e)
+        {
+            case_sens = false;
+        }
+
+
+        private void Button_Start_Click(object sender, RoutedEventArgs e)
+        {
+            main_textbox.Text = buffer_string;
+
+            main_textbox.Text = Check_Line_Status(main_textbox.Text, sr);
+
+            Keyboard.IsEnabled = true;
+
+            Button_Start.IsEnabled = false; Button_Stop.IsEnabled = true;
+        }
+
+        private void Button_Stop_Click(object sender, RoutedEventArgs e)
+        {
+            buffer_string = main_textbox.Text;
+
+            main_textbox.Text = null;
+
+            Keyboard.IsEnabled = false;
+
+            Button_Start.IsEnabled = true; Button_Stop.IsEnabled = false;
+
+
         }
     }
 }

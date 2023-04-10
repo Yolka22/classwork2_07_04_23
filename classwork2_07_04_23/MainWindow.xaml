@@ -38,7 +38,7 @@
                 <Label Target="{Binding ElementName=Dificulty_Slider}" FontWeight="Bold" Content="5"/>
                 <Slider x:Name="Dificulty_Slider" Maximum="100" Width="150" Margin="4" Value="5"/>
 
-                <CheckBox Margin="4" Content="Case Sensivite"/>
+                <CheckBox x:Name="Case_Sens_Check_box" Unchecked="Case_Sens_Check_box_Unchecked" Checked="Case_Sens_Check_box_Checked" Margin="4" Content="Case Sensivite"/>
 
                 
 
@@ -47,8 +47,8 @@
 
             <StackPanel Grid.Row="1" HorizontalAlignment="Right"  Orientation="Horizontal">
 
-                <Button Content="Start" Margin="5" Width="200"/>
-                <Button Content="Stop"  IsEnabled="False" Margin="5" Width="200"/>
+                <Button Click="Button_Start_Click" x:Name="Button_Start" Content="Start" Margin="5" Width="200"/>
+                <Button x:Name="Button_Stop" Click="Button_Stop_Click" Content="Stop"  IsEnabled="False" Margin="5" Width="200"/>
 
 
 
@@ -61,7 +61,7 @@
         </Grid>
         
         
-        <Grid x:Name="Keyboard" VerticalAlignment="Bottom" Height="250">
+        <Grid x:Name="Keyboard" IsEnabled="False" VerticalAlignment="Bottom" Height="250">
 
             <Grid.RowDefinitions>
 
